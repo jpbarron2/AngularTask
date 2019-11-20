@@ -2,26 +2,39 @@ const Task = require("../models/task");
 
 module.exports = {
   home: (req, res) => {
-    Task.find()
-      .then(data => res.json(data));
-      .catch(err => res.json(err));
+    Task.find({},(err, data) => {
+      if (err) {
+        res.json(err);
+      } else {
+        res.json(data);
+      }
+    });
   },
-  find: (req, res) =>{
-    Task.find({_id: req.params.id})
-      .then(data => res.json(data))
-      .catch(err => res.json(err))
+  find: (req, res) => {
+    Task.findOne({ _id: req.params.id }, (err, data) => {
+      if (err) {
+        res.json(err);
+      } else {
+        res.json(data);
+      }
+    });
   },
-  create: (req, res) =>{
-    const newTask = req.body;
-    Task.create(newTask)
-      console.log('Task successfully added', newTask);
-      .then(newTask => res.json(newTask))
-      .catch(err => res.json(err))
+  create: (req, res) => {
+    Task.create(req.body, (err, data) => {
+      if (err) {
+        res.json(err);
+      } else {
+        res.json(data);
+      }
+    });
   },
   delete: (req, res) => {
-    Task.findOneAndDelete({_id: req.params.id})
-      .then(console.log('Task Deleted'))
-      .catch(err => res.json(err))
+    Task.findByIdAndDelete(req.params.id, (err, data) => {
+      if (err) {
+        res.json(err);
+      } else {
+        res.json(data);
+      }
+    });
   }
-
 };

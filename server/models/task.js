@@ -1,5 +1,6 @@
-var mongoose = require("mongoose");
+var mongoose = require("../config/mongoose");
 var uniqueValidator = require("mongoose-unique-validator");
+
 mongoose.Promise = global.Promise;
 
 const TaskSchema = new mongoose.Schema(
