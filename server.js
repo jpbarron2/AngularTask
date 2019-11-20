@@ -9,13 +9,13 @@ app.use(bodyParser.json());
 // Require path
 var path = require("path");
 // Setting our Static Folder Directory
-// app.use(express.static(__dirname + "/public/dist/public"));
+app.use(express.static(__dirname + "/public/dist/public"));
 // Routes
 require("./server/config/routes")(app);
 //this route will be triggerd if any of the angular routes don't match
-// app.all("*", (req, res, next) => {
-//   res.sendFile(path.resolve("./public/dist/public/index.html"));
-// });
+app.all("*", (req, res, next) => {
+  res.sendFile(path.resolve("./public/dist/public/index.html"));
+});
 // Setting our Server to Listen on Port: 8000
 app.listen(8000, function() {
   console.log("listening on port 8000");
