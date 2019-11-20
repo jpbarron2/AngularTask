@@ -1,0 +1,23 @@
+{
+  "name": "taskapp",
+  "version": "1.0.0",
+  "description": "Simple Angular Task Application, full MEAN stack, SCSS styles",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Angular",
+    "Task",
+    "MEAN",
+    "SCSS"
+  ],
+  "author": "Jason Barron",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.12",
+    "mongoose-unique-validator": "^2.0.3"
+  }
+}
