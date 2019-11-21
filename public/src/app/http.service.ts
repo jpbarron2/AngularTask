@@ -9,7 +9,6 @@ export class HttpService {
     this.getTasks();
   }
   getTasks() {
-    let obs = this._http.get("/api/task");
-    obs.subscribe(data => console.log("Got our tasks", data));
+    return this._http.get("/api/task");
   }
 }

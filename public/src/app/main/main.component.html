@@ -1,1 +1,5 @@
-<p>main works!</p>
+<ul class="list-group justify-content-center">
+  <li *ngFor="let task of allTasks" class="list-group-item text-center">
+    {{ task.desc }} | <span *ngIf="!task.isDone"> X</span>
+  </li>
+</ul>
